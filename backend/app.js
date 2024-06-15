@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
-app.use(cors());
+// app.use(cors());
 
 
 app.use('/api/v1', product);
@@ -36,11 +36,11 @@ app.use('/api/v1', user);
 app.use('/api/v1', order);
 app.use('/api/v1', payment);
 
-app.use(express.static(path.join(__dirname, "../Frontend/build")));
+// app.use(express.static(path.join(__dirname, "../Frontend/build")));
 
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../Frontend/build/index.html"));
-  });
+// app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../Frontend/build/index.html"));
+//   });
 
 app.use(errorMiddleware);
 module.exports = app;

@@ -1,10 +1,9 @@
 import './App.css';
 import axios from 'axios';
-import WebFont from 'webfontloader'
 import { useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-
+import WebFont from 'webfontloader'
 import Header from './components/Layout/Header/Header'
 import Footer from './components/Layout/Footer/Footer'
 
@@ -63,7 +62,6 @@ function App() {
         families: ['Roboto', 'Droid sans', 'Chilanka']
       }
     });
-
     store.dispatch(loadUser());
     getStripeApiKey();
   }, []);

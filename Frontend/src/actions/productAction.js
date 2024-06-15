@@ -50,8 +50,8 @@ export const getProduct =
       if (category) {
         link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&rating[gte]=${rating}`;
       }
+      
       const data = await axios.get(link);
-
       dispatch({
         type: ALL_PRODUCT_SUCCESS,
         payload: data,

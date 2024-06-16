@@ -71,36 +71,36 @@ function App() {
       <Header />
 
       <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='/products/details/:id' element={<ProductDetails />} />
-        <Route exact path='/products' element={<Products />} />
-        <Route exact path='/products/:keyword' element={<Products />} />
-        <Route exact path='/search' element={<Search />} />
-        <Route exact path='/contact' element={<Contact />} />
-        <Route exact path='/about' element={<About />} />
-        <Route exact path='/login' element={<LoginSignUp />} />
-        <Route exact path='/account' element={<Profile />} />
-        <Route exact path='/me/update' element={<UpdateProfile />} />
-        <Route exact path='/password/update' element={<UpdatePassword />} />
-        <Route exact path='/password/forgot' element={<ForgotPassword />} />
-        <Route exact path='/password/reset/:token' element={<ResetPassword />} />
-        <Route exact path='/cart' element={<Cart />} />
-        <Route exact path='/shipping' element={<Shipping />} />
-        <Route exact path='/process/payment' element={<Pay />} />
-        <Route exact path='/success' element={<OrderSuccess />} />
-        <Route exact path='/orders' element={<MyOrders />} />
-        <Route exact path='/order/:id' element={<OrderDetails />} />
-        <Route exact path='/order/confirm' element={<ConfirmOrder />} />
+        <Route  path='/' element={<Home />} />
+        <Route  path='/products/details/:id' element={<ProductDetails />} />
+        <Route  path='/products' element={<Products />} />
+        <Route  path='/products/:keyword' element={<Products />} />
+        <Route  path='/search' element={<Search />} />
+        <Route  path='/contact' element={<Contact />} />
+        <Route  path='/about' element={<About />} />
+        <Route  path='/login' element={<LoginSignUp />} />
+        <Route  path='/account' element={<Profile />} />
+        <Route  path='/me/update' element={<UpdateProfile />} />
+        <Route  path='/password/update' element={<UpdatePassword />} />
+        <Route  path='/password/forgot' element={<ForgotPassword />} />
+        <Route  path='/password/reset/:token' element={<ResetPassword />} />
+        <Route  path='/cart' element={<Cart />} />
+        <Route  path='/shipping' element={<Shipping />} />
+        <Route  path='/process/payment' element={<Pay />} />
+        <Route  path='/success' element={<OrderSuccess />} />
+        <Route  path='/orders' element={<MyOrders />} />
+        <Route  path='/order/:id' element={<OrderDetails />} />
+        <Route  path='/order/confirm' element={<ConfirmOrder />} />
 
-        <Route exact path='/admin/dashboard' element={<Dashboard />} />
-        <Route exact path='/admin/products' element={<ProductList />} />
-        <Route exact path='/admin/product' element={<NewProduct />} />
-        <Route exact path='/admin/product/:id' element={<UpdateProduct />} />
-        <Route exact path='/admin/orders' element={<OrderList />} />
-        <Route exact path='/admin/order/:id' element={<ProcessOrder />} />
-        <Route exact path='/admin/users' element={<UsersList />} />
-        <Route exact path='/admin/user/:id' element={<UpdateUser />} />
-        <Route exact path='/admin/reviews' element={<ProductReviews />} />
+        <Route  path='/admin/dashboard' element={<Dashboard />} />
+        <Route  path='/admin/products' element={<ProductList />} />
+        <Route  path='/admin/product' element={<NewProduct />} />
+        <Route  path='/admin/product/:id' element={<UpdateProduct />} />
+        <Route  path='/admin/orders' element={<OrderList />} />
+        <Route  path='/admin/order/:id' element={<ProcessOrder />} />
+        <Route  path='/admin/users' element={<UsersList />} />
+        <Route  path='/admin/user/:id' element={<UpdateUser />} />
+        <Route  path='/admin/reviews' element={<ProductReviews />} />
         <Route  path="*" element={<NotFound />} />
       </Routes>
       <Footer />

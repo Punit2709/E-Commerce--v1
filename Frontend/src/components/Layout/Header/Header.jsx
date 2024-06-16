@@ -1,12 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
+import UserOptions from "./UserOptions";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import PersonIcon from '@mui/icons-material/Person';
+import { useSelector } from "react-redux";
 
 import logo from "../../../images/logo.png"
 
 const Header = () => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   return (
     <>
       <header>
@@ -38,7 +42,16 @@ const Header = () => {
           </NavLink>
           <NavLink to="/cart">
             <ShoppingBagIcon  className="cart"/>
-          </NavLink>  
+          </NavLink> 
+            {isAuthenticated ? (
+            <div className="user-options-container">
+              <UserOptions user={user} />
+            </div>
+          ) : (
+            <NavLink to="/login">
+              <PersonIcon  className="login"/>
+            </NavLink>
+          )}
         </div>
       </div>
     </header>

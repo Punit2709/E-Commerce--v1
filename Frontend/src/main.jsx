@@ -4,7 +4,7 @@ import App from './App';
 import {Provider} from 'react-redux'
 import store from './store';
 import { positions, transitions, Provider as AlertProvider  } from 'react-alert'
-import  AlertTemplate from 'react-alert-template-basic'
+import AlertTemplate from 'react-alert-template-basic'
 
 const alertOptions = {
   timeout: 3000,

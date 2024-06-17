@@ -17,12 +17,14 @@
     margin: 2rem;
     text-align: center;
   }
-  
+
   .productListTable {
     background-color: white;
     border: none !important;
+    flex-grow: 1;
+    scrollbar-width: 0;
   }
-  
+
   .productListTable div {
     font: 300 1vmax "Roboto";
     color: rgba(0, 0, 0, 0.678);

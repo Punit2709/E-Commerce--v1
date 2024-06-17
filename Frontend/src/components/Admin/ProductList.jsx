@@ -26,7 +26,6 @@ const ProductList = () => {
   const { user } = useSelector((state) => state.user);
 
   if(user.role !== 'admin'){
-    console.log(user);
     navigate('/account');
   }
 
@@ -138,10 +137,16 @@ const ProductList = () => {
           <DataGrid
             rows={rows}
             columns={columns}
-            pageSize={10}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[10, 15, 20]}
             disableSelectionOnClick
             className="productListTable"
-            autoHeight
           />
         </div>
       </div>

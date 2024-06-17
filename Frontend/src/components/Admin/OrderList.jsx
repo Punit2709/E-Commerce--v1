@@ -25,10 +25,15 @@ const OrderList = () => {
   const { error, orders } = useSelector((state) => state.allOrders);
 
   const { error: deleteError, isDeleted } = useSelector((state) => state.order);
-
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  
   const deleteOrderHandler = (id) => {
     dispatch(deleteOrder(id));
   };
+  
+  if (user.role !== "admin") {
+    navigate("/account");
+  }
 
   useEffect(() => {
     if (error) {
@@ -133,7 +138,14 @@ const OrderList = () => {
           <DataGrid
             rows={rows}
             columns={columns}
-            pageSize={10}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[10, 15, 20]}
             disableSelectionOnClick
             className="productListTable"
             autoHeight

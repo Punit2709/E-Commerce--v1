@@ -30,6 +30,11 @@ const ProductReviews = () => {
     (state) => state.productReviews
   );
 
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  if (user.role !== "admin") {
+    navigate("/account");
+  }
+
   const [productId, setProductId] = useState("");
 
   const deleteReviewHandler = (reviewId) => {

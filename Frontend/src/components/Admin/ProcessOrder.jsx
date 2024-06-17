@@ -23,6 +23,11 @@ const ProcessOrder = () => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
 
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  if (user.role !== "admin") {
+    navigate("/account");
+  }
+
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
 

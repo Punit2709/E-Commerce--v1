@@ -58,15 +58,13 @@ export const login = (email, password) => async (dispatch) => {
 
     const config = {headers: {"Content-Type": 'application/json'}};
 
-    console.log('check 1');
     const { data } = await axios.post(
       `/api/v1/login`,
       { email, password },
       config
     );
-    console.log('check 2');
-    console.log(data);
     dispatch({type: LOGIN_SUCCESS, payload: data.user})
+    localStorage.setItem("user", JSON.stringify(getState().user.user));
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
   }
@@ -87,6 +85,7 @@ export const register = (userData) => async (dispatch) => {
     );
 
     dispatch({type: REGISTER_USER_SUCCESS, payload: data.user})
+    localStorage.setItem("user", JSON.stringify(getState().user.user));
   } catch (error) {
     dispatch({ type: REGISTER_USER_FAIL, payload: error.response.data.message });
   }
@@ -100,6 +99,7 @@ export const loadUser = () => async (dispatch) => {
     const { data } = await axios.get(`/api/v1/me`);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
+    localStorage.setItem("user", JSON.stringify(getState().user.user));
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
   }

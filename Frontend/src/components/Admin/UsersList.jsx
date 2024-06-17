@@ -19,6 +19,10 @@ const UsersList = ({ history }) => {
   const alert = useAlert();
 
   const { error, users } = useSelector((state) => state.allUsers);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  if (user.role !== "admin") {
+    navigate("/account");
+  }
 
   const {
     error: deleteError,
@@ -132,7 +136,14 @@ const UsersList = ({ history }) => {
           <DataGrid
             rows={rows}
             columns={columns}
-            pageSize={10}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[10, 15, 20]}
             disableSelectionOnClick
             className="productListTable"
             autoHeight

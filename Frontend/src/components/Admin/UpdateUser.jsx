@@ -16,7 +16,7 @@ import {
 import Loader from "../Layout/Loader/Loader";
 import { useNavigate, useParams } from "react-router-dom";
 
-const UpdateUser = ({ history, match }) => {
+const UpdateUser = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();

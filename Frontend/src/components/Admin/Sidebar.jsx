@@ -3,9 +3,10 @@ import "./Sidebar.css";
 import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
 // import { TreeView, TreeItem } from '@mui/lab';
-import { TreeView } from '@mui/x-tree-view/TreeView';
+import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import AddIcon from '@mui/icons-material/Add';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
@@ -26,20 +27,19 @@ function Sidebar() {
             </p>
           </Link>
           <Link>
-            <TreeView
-              defaultCollapseIcon={<ExpandMoreIcon />}
-              defaultExpandIcon={<ImportExportIcon />}
+            <SimpleTreeView
+              slots={{ collapseIcon: ExpandCircleDownIcon, expandIcon: ImportExportIcon }}
             >
-              <TreeItem nodeId="1" label="Products">
+              <TreeItem itemId="1" label="Products">
                 <Link to="/admin/products">
-                  <TreeItem nodeId="2" label="All" icon={<PostAddIcon />} />
+                  <TreeItem itemId="2" label="All" slots={{ icon: PostAddIcon }}/>
                 </Link>
     
                 <Link to="/admin/product">
-                  <TreeItem nodeId="3" label="Create" icon={<AddIcon />} />
+                  <TreeItem itemId="3" label="Create" slots={{ icon: AddIcon }}/>
                 </Link>
               </TreeItem>
-            </TreeView>
+            </SimpleTreeView>
           </Link>
           <Link to="/admin/orders">
             <p>

@@ -9,10 +9,10 @@ import {
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
 import MetaData from "../Layout/MetaData";
-import { DataGrid } from '@mui/x-data-grid';
-import Button from '@mui/material/Button';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { DataGrid } from "@mui/x-data-grid";
+import Button from "@mui/material/Button";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 import SideBar from "./Sidebar";
 // import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
 
@@ -25,10 +25,9 @@ const ProductList = () => {
   const { error, products } = useSelector((state) => state.products);
   const { user } = useSelector((state) => state.user);
 
-  if(user.role !== 'admin'){
-    navigate('/account');
+  if (user.role !== "admin") {
+    navigate("/account");
   }
-
 
   // updProduct : Updated Product
   const { error: deleteError, isDeleted } = useSelector(
@@ -92,19 +91,14 @@ const ProductList = () => {
       type: "number",
       sortable: false,
       renderCell: (params) => {
-        console.log(params);
-        const id =  params.id;
+        const id = params.id;
         return (
           <Fragment>
             <Link to={`/admin/product/${id}`}>
               <EditIcon />
             </Link>
 
-            <Button
-              onClick={() =>
-                deleteProductHandler(id)
-              }
-            >
+            <Button onClick={() => deleteProductHandler(id)}>
               <DeleteIcon />
             </Button>
           </Fragment>

@@ -5,13 +5,13 @@ import Loader from "../Layout/Loader/Loader";
 
 
 const ProtectedRoute = ({ isAdmin, element }) => {
-  const { loading, isAuthenticated, user } = useSelector((state) => {console.log(state); return state.user});
-  console.log(user);
+  const { loading, isAuthenticated, user } = useSelector((state) => state.user)
+  
 
   if (loading) return <Loader />;
 
   if (!loading && !isAuthenticated) {
-    console.log('Navigating to Login');
+    
     return <Navigate to="/login" />;
   }
 

@@ -6,8 +6,8 @@ import Loader from "../Layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
 import { useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
-import Slider from '@mui/material/Slider';
-import Typography from '@mui/material/Typography';
+import Slider from "@mui/material/Slider";
+import Typography from "@mui/material/Typography";
 import MetaData from "../Layout/MetaData";
 import { useAlert } from "react-alert";
 
@@ -53,13 +53,12 @@ function Products() {
   };
 
   useEffect(() => {
-    if(error){
+    if (error) {
       alert.error(error);
       dispath(clearErrors());
     }
 
-    if(currentPage == 3){
-      console.log(products)
+    if (currentPage == 3) {
     }
 
     dispath(getProduct(keyword, currentPage, price, category, rating));
@@ -71,7 +70,7 @@ function Products() {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title='Products -- E-Commerce'/>
+          <MetaData title="Products -- E-Commerce" />
           <h2 className="productsHeading">
             {keyword ? `${keyword}` : "Products"}
           </h2>

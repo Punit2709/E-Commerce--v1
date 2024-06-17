@@ -3,8 +3,8 @@ import "./Cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
 import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
-import Typography from '@mui/material/Typography';
-import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import Typography from "@mui/material/Typography";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -13,7 +13,6 @@ const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const { isAuthenticated } = useSelector((state) => state.user);
 
-  console.log(cartItems);
   const increaseQuantity = (id, quantity, stock) => {
     const newQty = quantity + 1;
     if (stock <= quantity) {

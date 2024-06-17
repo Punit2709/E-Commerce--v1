@@ -6,13 +6,13 @@ import { clearErrors, updatePassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
 import MetaData from "../Layout/MetaData";
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import LockIcon from '@mui/icons-material/Lock';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import LockIcon from "@mui/icons-material/Lock";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { useNavigate } from "react-router-dom";
 
 const UpdatePassword = () => {
-  let navigate = useNavigate();  
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -36,7 +36,6 @@ const UpdatePassword = () => {
 
   useEffect(() => {
     if (error) {
-        console.log(error);
       alert.error(error);
       dispatch(clearErrors());
     }

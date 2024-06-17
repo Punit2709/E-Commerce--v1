@@ -70,7 +70,7 @@ function App() {
         families: ['Roboto', 'Droid sans', 'Chilanka']
       }
     });
-    dispatch(loadUser());
+  dispatch(loadUser());
     getStripeApiKey();
   }, []);
 

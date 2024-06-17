@@ -9,21 +9,22 @@ import { useAlert } from "react-alert";
 import MetaData from "../Layout/MetaData";
 import Loader from "../Layout/Loader/Loader";
 
-import { DataGrid } from '@mui/x-data-grid'; 
-import Typography from '@mui/material/Typography';
-import LaunchIcon from '@mui/icons-material/Launch'; 
-
-
+import { DataGrid } from "@mui/x-data-grid";
+import Typography from "@mui/material/Typography";
+import LaunchIcon from "@mui/icons-material/Launch";
 
 const MyOrders = () => {
   const dispatch = useDispatch();
 
   const alert = useAlert();
 
-  const { loading:userLoading, user, isAuthenticated } = useSelector((state) => state.user);
+  const {
+    loading: userLoading,
+    user,
+    isAuthenticated,
+  } = useSelector((state) => state.user);
   const { loading, error, orders } = useSelector((state) => state.myOrders);
 
-  console.log(orders);
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
 
@@ -33,10 +34,8 @@ const MyOrders = () => {
       minWidth: 150,
       flex: 0.5,
       cellClassName: (params) => {
-        let{ status } = params.row;
-        return status === "Delivered"
-          ? "greenColor"
-          : "redColor";
+        let { status } = params.row;
+        return status === "Delivered" ? "greenColor" : "redColor";
       },
     },
     {
@@ -89,7 +88,7 @@ const MyOrders = () => {
       dispatch(clearErrors());
     }
 
-    if(isAuthenticated){
+    if (isAuthenticated) {
       dispatch(myOrders());
     }
   }, [dispatch, alert, error, isAuthenticated]);
@@ -101,25 +100,27 @@ const MyOrders = () => {
       {loading || userLoading ? (
         <Loader />
       ) : (
-        isAuthenticated && <div className="myOrdersPage">
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: {
-                  pageSize: 10,
+        isAuthenticated && (
+          <div className="myOrdersPage">
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: {
+                    pageSize: 10,
+                  },
                 },
-              },
-            }}
-            pageSizeOptions={[10, 15, 20]}
-            disableSelectionOnClick
-            className="myOrdersTable"
-            autoHeight
-          />
+              }}
+              pageSizeOptions={[10, 15, 20]}
+              disableSelectionOnClick
+              className="myOrdersTable"
+              autoHeight
+            />
 
-          <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
-        </div>
+            <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
+          </div>
+        )
       )}
     </Fragment>
   );

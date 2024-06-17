@@ -14,13 +14,13 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
     crop: "scale",
   });
 
-  if(!myCloud){
+  if (!myCloud) {
     return next(new ErrorHandler(500, 'Cloud Not Supported'));
   }
 
-  console.log('Req Arrived 2');
+
   const { name, email, password } = req.body;
-  
+
   const user = await userModel.create({
     name,
     email,
@@ -66,7 +66,7 @@ exports.logoutUser = catchAsyncError(async (req, res, next) => {
     httpOnly: true,
   });
 
-  console.log('logging out');
+
   res.status(200).json({
     success: true,
     message: "User Logged Out Successfully",
@@ -124,7 +124,7 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
     .createHash("sha256")
     .update(req.params.token)
     .digest("hex");
-  
+
   const user = await userModel.findOne({
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },

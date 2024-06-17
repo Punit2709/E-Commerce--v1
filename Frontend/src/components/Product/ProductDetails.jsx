@@ -24,7 +24,7 @@ import {
   DialogTitle,
   Button,
 } from "@mui/material";
-import Rating from '@mui/material/Rating';
+import Rating from "@mui/material/Rating";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -48,13 +48,11 @@ const ProductDetails = () => {
     value: product.rating,
     readOnly: true,
     size: "large",
-    precision: 0.5
+    precision: 0.5,
   };
-
 
   const increaseQuantity = () => {
     if (quantity < product.stock) {
-      console.log(product.stock);
       quantity = quantity + 1;
       setQuantity(quantity);
     }
@@ -82,7 +80,6 @@ const ProductDetails = () => {
     myForm.set("rating", rating);
     myForm.set("comment", comment);
     myForm.set("productId", id);
-    console.log(id);
 
     dispatch(newReview(myForm));
     setOpen(false);
@@ -165,7 +162,9 @@ const ProductDetails = () => {
               <div className="detailsBlock-4">
                 Description: <p>{product.description}</p>
               </div>
-              <button onClick={submitReviewToggle} className="submitReview">Submit Review</button>
+              <button onClick={submitReviewToggle} className="submitReview">
+                Submit Review
+              </button>
             </div>
           </div>
 

@@ -7,11 +7,11 @@ class ApiFeatures {
   search() {
     const keyword = this.queryStr.keyword
       ? {
-          name: {
-            $regex: this.queryStr.keyword,
-            $options: "i", // i for case insensitive
-          },
-        }
+        name: {
+          $regex: this.queryStr.keyword,
+          $options: "i", // i for case insensitive
+        },
+      }
       : {};
 
     this.query = this.query.find({ ...keyword });
@@ -33,12 +33,12 @@ class ApiFeatures {
     return this;
   }
 
-  pagination(resultPerPage){
-    const currentPage = Number(this.queryStr.page ) || 1;
+  pagination(resultPerPage) {
+    const currentPage = Number(this.queryStr.page) || 1;
     let skip = resultPerPage * (currentPage - 1);
 
     this.query = this.query.limit(resultPerPage).skip(skip);
-    // console.log('I m Skip'+ skip);
+    // 
     return this;
   }
 }

@@ -72,7 +72,7 @@ function Products() {
         <Fragment>
           <MetaData title="Products -- E-Commerce" />
           <h2 className="productsHeading">
-            {keyword ? `${keyword}` : "Products"}
+            Products
           </h2>
           <div className="products">
             {products &&

@@ -11,7 +11,7 @@ import MetaData from "../Layout/MetaData";
 import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
-  let history = useNavigate();
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -63,7 +63,7 @@ const UpdateProfile = () => {
       alert.success("Profile Updated Successfully");
       dispatch(loadUser());
 
-      history("/account");
+      navigate("/account");
       
       dispatch({
         type: UPDATE_PROFILE_RESET,

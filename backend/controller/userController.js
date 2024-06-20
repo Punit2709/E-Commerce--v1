@@ -192,27 +192,28 @@ exports.updateUserProfile = catchAsyncError(async (req, res, next) => {
   if (req.body.avatar !== "") {
     const user = await userModel.findById(req.user.id);
     const imageId = user.avatar.public_id;
-
+    
     await cloudinary.uploader.destroy(imageId);
-
+    
     const myCloud = await cloudinary.uploader.upload(req.body.avatar, {
       folder: "avatars",
       width: 150,
       crop: "scale",
     });
+    console.log('check 1')
 
     newData.avatar = {
       public_id: myCloud.public_id,
       url: myCloud.secure_url,
     };
   }
-
   const user = await userModel.findByIdAndUpdate(req.user.id, newData, {
     new: true,
     runValidators: true,
     useFindAndModify: false,
   });
 
+  console.log(user);
   res.status(200).json({
     success: true,
     message: "User Data Update Successfully",

@@ -1,13 +1,35 @@
 .speedDial {
-    position: absolute;
-    height: 4rem;
-    width: 3rem;
-    margin-left: 0.5rem;
-    margin-top: -1.2rem;
-  }
-  
+  height: 4rem;
+  width: 3rem;
+  margin-left: 0.5rem;
+  margin-top: 1.5rem;
+  z-index: 111; /* Ensure it's above the backdrop */
+}
+
+.speedDialIcon {
+  width: 3.45rem;
+  height: 3.45rem;
+  border-radius: 100%;
+}
+
+.speedDialAction {
+  z-index: 121; /* Ensure actions are above the speed dial */
+}
+
+@media (max-width: 798px) {
   .speedDialIcon {
-    width: 3.45rem;
-    height: 3.45rem;
-    border-radius: 100%;
+    width: 3.4rem;
+    height: 3.4rem;
   }
+}
+
+@media (max-width: 520px) {
+  .speedDial {
+    margin-top: 0.2rem;
+  }
+
+  .speedDialIcon {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

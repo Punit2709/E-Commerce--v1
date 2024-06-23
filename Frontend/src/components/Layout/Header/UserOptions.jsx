@@ -67,9 +67,8 @@ const UserOptions = ({ user }) => {
       <Backdrop open={open} style={{ zIndex: "10" }} />
       <SpeedDial
         ariaLabel="SpeedDial tooltip example"
-        onClose={() => setOpen(false)}
-        onOpen={() => setOpen(true)}
-        style={{ zIndex: "11" }}
+        onClick={() => setOpen(!open)}
+        style={{ zIndex: "111" }}
         open={open}
         direction="down"
         className="speedDial"

@@ -1,6 +1,7 @@
 .LoginSignUpContainer {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 10vmin);
+    margin-top: 10vmin;
     max-width: 100%;
     display: flex;
     justify-content: center;
@@ -159,10 +160,18 @@
     transform: translateX(100%);
   }
   
+  @media screen and (max-width: 986) {
+    .LoginSignUpBox {
+      width: 43vw;
+      height: 95vh;
+    }
+  }
+
   @media screen and (max-width: 600px) {
     .LoginSignUpContainer {
       background-color: white;
     }
+
     .LoginSignUpBox {
       width: 100vw;
       height: 95vh;

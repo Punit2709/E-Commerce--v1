@@ -19,6 +19,7 @@ a {
 header{
     display: flex;
     flex-direction: row;
+    z-index: 22;
 }
 
 nav{
@@ -29,7 +30,7 @@ nav{
 
 .logo-div{
     width: 10%;
-    margin-left: 6rem;
+    margin-left: 3rem;
     height: 10vmin;
 }
 
@@ -92,6 +93,7 @@ nav{
 
     .logo-div{
         justify-self: flex-start;
+        margin-left: 2rem;
     }
 
     .right-menu{

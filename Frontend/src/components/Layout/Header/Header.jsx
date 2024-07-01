@@ -29,22 +29,22 @@ const Header = () => {
           <div className={showMediaIcons ? "mobile-nav-menu nav-menu" : "nav-menu"}>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" onClick={() => setShowMediaIcons(false)}>Home</NavLink>
               </li>
               <li>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/about" onClick={() => setShowMediaIcons(false)}>About</NavLink>
               </li>
               <li>
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink to="/contact" onClick={() => setShowMediaIcons(false)}>Contact</NavLink>
               </li>
               <li>
-                <NavLink to="/products">Products</NavLink>
+                <NavLink to="/products" onClick={() => setShowMediaIcons(false)}>Products</NavLink>
               </li>
               <li>
-                <NavLink to="/search"> <SearchIcon /></NavLink>
+                <NavLink to="/search" onClick={() => setShowMediaIcons(false)}> <SearchIcon /></NavLink>
               </li>
               <li>
-                <NavLink to="/cart"> < ShoppingBagIcon/></NavLink>
+                <NavLink to="/cart" onClick={() => setShowMediaIcons(false)}> < ShoppingBagIcon/></NavLink>
               </li>
               <li>
                 {isAuthenticated ? (
@@ -52,7 +52,7 @@ const Header = () => {
                     <UserOptions user={user} />
                   </div>
                 ) : (
-                  <NavLink to="/login">
+                  <NavLink to="/login" onClick={() => setShowMediaIcons(false)}>
                     <PersonIcon />
                   </NavLink>
                 )}

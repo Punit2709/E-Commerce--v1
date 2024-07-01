@@ -1,6 +1,7 @@
 .searchBox {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 10vmin);
+    margin-top: 10vmin;
     max-width: 100%;
     display: flex;
     justify-content: center;
@@ -40,6 +41,10 @@
   
   .searchBox > input[type="submit"]:hover {
     background-color: rgb(55, 97, 214);
+  }
+
+  footer{
+    display: none;
   }
   
   @media screen and (max-width: 600px) {

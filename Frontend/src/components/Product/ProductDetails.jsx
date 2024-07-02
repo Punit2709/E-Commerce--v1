@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -29,10 +29,15 @@ import Rating from "@mui/material/Rating";
 const ProductDetails = () => {
   const { id } = useParams();
   const alert = useAlert();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
+  );
+
+  const { user} = useSelector(
+    (state) => state.user
   );
 
   const { success, error: reviewError } = useSelector(
@@ -75,6 +80,12 @@ const ProductDetails = () => {
   };
 
   const reviewSubmitHandler = () => {
+
+    if(!user){
+      alert.error('Login Required For Review');
+      navigate('/login');
+    }
+
     const myForm = new FormData();
 
     myForm.set("rating", rating);

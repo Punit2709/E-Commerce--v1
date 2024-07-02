@@ -1,6 +1,7 @@
 import React from "react";
 import PersonIcon from '@mui/icons-material/Person';
 import Rating from '@mui/material/Rating';
+import './ProductDetails.css'
 
 const ReviewCard = ({ review }) => {
   const options = {
@@ -8,6 +9,8 @@ const ReviewCard = ({ review }) => {
     readOnly: true,
     precision: 0.5, 
   };
+
+  console.log(review);
 
   return (
     <div className="reviewCard">

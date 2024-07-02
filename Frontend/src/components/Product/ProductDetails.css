@@ -206,12 +206,15 @@ body {
 }
 
 .reviewCardComment {
-  color: #00000071;
-  font-weight: 300;
-  font-size: 0.8rem;
-  font-style: italic;
+  color: black;
+  font-weight:bolder;
+  font-size: 1rem;
+  font-style:oblique;
   margin-top: 0.5rem;
+  
 }
+
+
 
 .noReviews {
   font-weight: 400;

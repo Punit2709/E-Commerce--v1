@@ -10,8 +10,6 @@ const ReviewCard = ({ review }) => {
     precision: 0.5, 
   };
 
-  console.log(review);
-
   return (
     <div className="reviewCard">
       <PersonIcon xlassName='personIcon'/>
